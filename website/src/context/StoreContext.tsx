@@ -12,7 +12,7 @@ export const WHATSAPP_NUMBER = (import.meta.env.VITE_WHATSAPP_NUMBER as string) 
 interface StoreContextValue {
   products: Product[];
   productsLoading: boolean;
-  productsSource: 'sheet' | 'sample' | null;
+  productsSource: 'sheet' | 'excel' | 'sample' | null;
   productsError?: string;
   priceMode: PriceMode;
   setPriceMode: (mode: PriceMode) => void;
@@ -45,7 +45,7 @@ function readStoredEnquiry(products: Product[]): EnquiryItem[] {
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [products, setProducts] = useState<Product[]>([]);
   const [productsLoading, setProductsLoading] = useState(true);
-  const [productsSource, setProductsSource] = useState<'sheet' | 'sample' | null>(null);
+  const [productsSource, setProductsSource] = useState<'sheet' | 'excel' | 'sample' | null>(null);
   const [productsError, setProductsError] = useState<string | undefined>(undefined);
 
   const [priceMode, setPriceModeState] = useState<PriceMode>(() => {
