@@ -1,0 +1,594 @@
+:root {
+  --text: #3f3a45;
+  --text-h: #1a1620;
+  --bg: #fdfcfb;
+  --surface: #ffffff;
+  --border: #e6e2df;
+  --accent: #b8722c;
+  --accent-dark: #8f5820;
+  --accent-contrast: #ffffff;
+  --success: #2f8f5b;
+  --danger: #c0392b;
+  --radius: 10px;
+  --shadow: 0 6px 20px rgba(20, 15, 10, 0.08);
+
+  font: 16px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-h);
+  margin: 0 0 0.5rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Layout helpers ---------- */
+.section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.section__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.section__lead {
+  max-width: 720px;
+  color: var(--text);
+}
+
+.section--cta {
+  text-align: center;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 3rem 1.5rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.btn--primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn--secondary {
+  background: var(--surface);
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn--small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.btn--full {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.navbar__brand {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 1.25rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.navbar__links a.active {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.price-toggle {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.price-toggle button {
+  border: none;
+  background: transparent;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.price-toggle button.active {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.enquiry-btn {
+  position: relative;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+}
+
+.enquiry-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(120deg, #efe6da, #f8f3ec);
+  overflow: hidden;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(184, 114, 44, 0.15), transparent 60%);
+}
+
+.hero__content {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.hero__content h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  max-width: 700px;
+}
+
+.hero__content p {
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- Category pills ---------- */
+.category-pills {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.category-pill {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+/* ---------- Product grid & card ---------- */
+.product-grid__filters {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.product-grid__filters input,
+.product-grid__filters select {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font: inherit;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+}
+
+.product-card__image-link {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f2efe9;
+}
+
+.product-card__image-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge--out {
+  background: var(--danger);
+  color: #fff;
+}
+
+.product-card__body {
+  padding: 0.9rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.product-card__category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.product-card__meta {
+  color: var(--text);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.product-card__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.product-card__price {
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.product-card__moq {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--text);
+}
+
+.empty-state {
+  color: var(--text);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* ---------- Product detail ---------- */
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+.product-detail__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.product-detail__media img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.product-detail__video {
+  width: 100%;
+  margin-top: 0.75rem;
+  border-radius: var(--radius);
+}
+
+.product-detail__meta {
+  color: var(--text);
+}
+
+.product-detail__description {
+  margin: 0.75rem 0 1.25rem;
+}
+
+.product-detail__price {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-h);
+  margin-bottom: 1.25rem;
+}
+
+.product-detail__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .product-detail__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Wholesale & Contact ---------- */
+.info-list {
+  padding-left: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.info-list li {
+  margin-bottom: 0.4rem;
+}
+
+.wholesale-form {
+  max-width: 480px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.wholesale-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.wholesale-form input,
+.wholesale-form textarea {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  resize: vertical;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ---------- Enquiry drawer ---------- */
+.drawer__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 40;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(380px, 100vw);
+  background: var(--surface);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.drawer--open {
+  transform: translateX(0);
+}
+
+.drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.drawer__header button {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.drawer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.drawer__item {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.drawer__item img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.drawer__item-name {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.drawer__item-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.drawer__item-controls input {
+  width: 56px;
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.drawer__item-controls button {
+  border: none;
+  background: transparent;
+  color: var(--danger);
+  font-size: 0.8rem;
+}
+
+.drawer__footer {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.drawer__total {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: #221d18;
+  color: #e9e4dd;
+  margin-top: 2rem;
+}
+
+.footer__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.footer h3, .footer h4 {
+  color: #fff;
+}
+
+.footer__copyright {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.8rem;
+  color: #bdb6ac;
+}
